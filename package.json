@@ -1,0 +1,22 @@
+{
+  "name": "twitter_search_api",
+  "version": "1.0.0",
+  "description": "twitter search api",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.7",
+    "node-cron": "^2.0.3",
+    "nodemon": "^1.18.10",
+    "twitter": "^1.7.1"
+  }
+}
