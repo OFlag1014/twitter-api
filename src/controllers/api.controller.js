@@ -8,32 +8,19 @@ const client = new Twitter({
 });
 
 exports.getSearchData = async (req, res) => {
-    res.json({
-        status: 'success',
-        result: 'getSearchData'
+    var data = 'data is empty';
+    var key_word = req.params.key;
+    client.get('search/tweets', { q: 'Measles' }, function (twitterErr, tweets, twitterRes) {
+        if (twitterErr) {
+            data = twitterErr;
+            return res.status(400).send('Sorry, can\'t find tweets with this keywords');
+        }
+        data = {
+            tweets: tweets
+        };
+        res.json({
+            status: 'success',
+            result: data
+        })
     })
-    // client.get('search/tweets', { q: 'node.js' }, function (err, tweets, res) {
-    //     console.log('Here comes tweets', tweets);
-    // })
 }
-
-// exports.getSearchData = async (req, res) => {
-//     try {
-//         var data='';
-//         client.get('search/tweets', { q: 'node.js' }, function(err, tweets, res){
-//             // console.log('Here comes tweets', tweets);
-//             data = tweets;
-//         })
-
-//         res.json({
-//             status: 'success',
-//             result: data
-//         })
-//     } catch (err) {
-//         console.log('getData error: ', err);
-//         res.json({
-//             status: 'error',
-//             error: err
-//         })
-//     }
-// }

@@ -10,9 +10,13 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/search', apiCtrl.getSearchData);
+// router.get('/search', (req, res) => {
+//     res.json({
+//         data: req,
+//     });
+// });
 
-// router.get('/campaign', apiCtrl.getData);
+router.get('/search', apiCtrl.getSearchData);
 
 // Export API routes
 module.exports = router;
